@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs6w1wsh8ib2m"]
+[gd_scene load_steps=5 format=3 uid="uid://bs6w1wsh8ib2m"]
 
 [ext_resource type="PackedScene" uid="uid://dk3kixvrbbrok" path="res://Scenes/player.tscn" id="1_48t54"]
 [ext_resource type="PackedScene" uid="uid://c4gbwxcp1rcto" path="res://Scenes/mushroom.tscn" id="2_oq614"]
+[ext_resource type="PackedScene" uid="uid://c6y1mf7m7vknf" path="res://Scenes/segment.tscn" id="3_ltpna"]
+[ext_resource type="PackedScene" uid="uid://3apcqfdqry4m" path="res://Scenes/wall.tscn" id="4_ssfan"]
 
 [node name="Game" type="Node2D"]
 
@@ -19,8 +21,23 @@ position = Vector2(0, -1)
 [node name="GameManager" type="Node" parent="."]
 
 [node name="Mushroom" parent="." instance=ExtResource("2_oq614")]
-position = Vector2(-28, -21)
+position = Vector2(-36, -63)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-3, 0)
 zoom = Vector2(3, 3)
+
+[node name="Segment" parent="." instance=ExtResource("3_ltpna")]
+position = Vector2(-92, -63)
+
+[node name="Mushroom2" parent="." instance=ExtResource("2_oq614")]
+position = Vector2(-125, -52)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall1" parent="Walls" instance=ExtResource("4_ssfan")]
+position = Vector2(189, 0)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("4_ssfan")]
+position = Vector2(-196, 2)
+rotation = -3.13328
