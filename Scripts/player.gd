@@ -1,26 +1,24 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 150.0
+@onready var gun: Area2D = $Gun
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
-	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	
-		
-	# Get the input direction and handle the movement/deceleration.
-	var ydirection := Input.get_axis("move_up", "move_down")
-	if ydirection:
-		velocity.y = ydirection * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+	# Get the input x direction and handle the movement/deceleration.
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = direction * SPEED
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("shoot"):
+		gun.shoot()
+		
+		
+	#if velocity.length() > 0.0:
+		# is moving
+		
+	#else:
+		#is idle

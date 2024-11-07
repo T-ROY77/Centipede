@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk3kixvrbbrok"]
+[gd_scene load_steps=7 format=3 uid="uid://dk3kixvrbbrok"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_58s6w"]
 [ext_resource type="Texture2D" uid="uid://co1xrmcospxhd" path="res://Assets/sprites/slime_green.png" id="2_khtuw"]
+[ext_resource type="PackedScene" uid="uid://by5dpqxwwuqpo" path="res://Scenes/gun.tscn" id="3_b2ydm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jrok"]
 atlas = ExtResource("2_khtuw")
@@ -30,3 +31,6 @@ sprite_frames = SubResource("SpriteFrames_ydsn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_htosd")
+
+[node name="Gun" parent="." instance=ExtResource("3_b2ydm")]
+position = Vector2(0, -6)
