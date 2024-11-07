@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://yxemin8nvvki"]
+
+[ext_resource type="Script" path="res://Scripts/head.gd" id="1_hvyw6"]
+[ext_resource type="Texture2D" uid="uid://b05w2ttau7ikx" path="res://Assets/sprites/platforms.png" id="2_8c4we"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln0t5"]
+size = Vector2(32, 8)
+
+[node name="Head" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_hvyw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ln0t5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8c4we")
+region_enabled = true
+region_rect = Rect2(16.321, 0, 31.8908, 8.59843)
