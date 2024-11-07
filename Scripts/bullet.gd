@@ -1,12 +1,12 @@
 extends Area2D
 
-const SPEED = 10000
-const RANGE = 1200000
+const SPEED = 500
+const RANGE = 12000
 
 var travelled_distance = 0
 
 func _physics_process(delta: float) -> void:
-	var direction = Vector2.RIGHT.rotated(rotation)
+	var direction = Vector2.UP.rotated(rotation)
 	position += direction * SPEED * delta
 	
 	travelled_distance += SPEED * delta
@@ -19,6 +19,4 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage();
-	
-	
 	queue_free()
