@@ -1,31 +1,42 @@
 extends CharacterBody2D
 
 const SPEED = 200
-const DOWN = 5
-const TOTAL_SEGMENTS = 7
+const DOWN = .05
 
-var current_segments = 0;
 var direction = Vector2.RIGHT
 
 func _ready() -> void:
-	if current_segments < TOTAL_SEGMENTS:
-		current_segments += 1
-		const SEGMENT = preload("res://Scenes/segment.tscn")
-		var new_segment = SEGMENT.instantiate()
-		new_segment.global_position.x = global_position.x - 50
-		new_segment.global_position.y = global_position.y
-	
-		#new_segment.global_rotation = global_rotation
-		add_child(new_segment)
+	rotation += deg_to_rad(90)
+	spawn_segment()
 		
 		
 func _process(delta: float) -> void:
-	
+	#print(position)
 	var col_info = move_and_collide(direction * SPEED * delta)
+	#hit a wall or mush
 	if col_info:
-		#velocity = velocity.bounce(col_info.get_normal())
-		direction = -direction
-		position.y += DOWN
+		#if moving right
+		if direction == Vector2.RIGHT:
+			rotation += deg_to_rad(90)
+			direction = Vector2.DOWN
+			await get_tree().create_timer(DOWN).timeout
+			rotation += deg_to_rad(90)
+			direction = Vector2.LEFT
+		#if moving left
+		elif direction == Vector2.LEFT:
+			rotation -= deg_to_rad(90)
+			direction = Vector2.DOWN
+			await get_tree().create_timer(DOWN).timeout
+			rotation -= deg_to_rad(90)
+			direction = Vector2.RIGHT
 		
-func get_current_segments() -> void:
-	current_segments
+func take_damage():
+	queue_free()
+	
+func spawn_segment():
+	if Global.current_Segments < Global.TOTAL_SEGMENTS:
+		Global.current_Segments += 1
+		const SEGMENT = preload("res://Scenes/segment.tscn")
+		var new_segment = SEGMENT.instantiate()
+		#new_segment.position -= Vector2(50,0)
+		#add_child(new_segment)
