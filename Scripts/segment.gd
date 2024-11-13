@@ -1,25 +1,39 @@
 extends CharacterBody2D
 
 const SPEED = 200
-const DOWN = 5
-const OFFSET = 10
+const DOWN = .05
+const OFFSET = 25
 
-@onready var head: CharacterBody2D = %Head
-
-
+var is_head = true
 var direction = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(position)
+	#if is_head:
+		#rotation += deg_to_rad(90)
 	spawn_segment()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#global_position = head.global_position
-	#var pos = head.global_position
-	pass
+	if is_head:
+		var col_info = move_and_collide(direction * SPEED * delta)
+		#hit a wall or mush
+		if col_info:
+			#if moving right
+			if direction == Vector2.RIGHT:
+				rotation += deg_to_rad(90)
+				direction = Vector2.DOWN
+				await get_tree().create_timer(DOWN).timeout
+				rotation += deg_to_rad(90)
+				direction = Vector2.LEFT
+			#if moving left
+			elif direction == Vector2.LEFT:
+				rotation -= deg_to_rad(90)
+				direction = Vector2.DOWN
+				await get_tree().create_timer(DOWN).timeout
+				rotation -= deg_to_rad(90)
+				direction = Vector2.RIGHT
 	
 		
 func take_damage():
@@ -31,9 +45,9 @@ func spawn_segment():
 		Global.current_Segments += 1
 		const SEGMENT = preload("res://Scenes/segment.tscn")
 		var new_segment = SEGMENT.instantiate()
-		
-		#remove after follow is fixed
-		new_segment.position -= Vector2(50,0)
+		new_segment.is_head = false
+		new_segment.rotation = rotation
+		new_segment.position -= Vector2(OFFSET,0)
 		add_child(new_segment)
 	pass
 	
