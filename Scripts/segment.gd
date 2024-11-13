@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 200
 const DOWN = 5
+const OFFSET = 10
 
-@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var head: CharacterBody2D = $"."
-
+@onready var head: CharacterBody2D = %Head
 
 
 var direction = Vector2.RIGHT
@@ -18,22 +17,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# position += direction * SPEED * delta
-	#var col_info = move_and_collide(direction * SPEED * delta)
-	#if col_info:
-		#velocity = velocity.bounce(col_info.get_normal())
-		#direction = -direction
-		#position.y += DOWN
-		
-	#global_position = global_position.linear_interpolate(get_parent())
-	#position = get_parent().position.y
-	#set_movement_target(get_parent().global_position)
+	#global_position = head.global_position
+	#var pos = head.global_position
 	pass
 	
 		
 func take_damage():
-	#TODO: set the children to the parent of this
-	get_parent().add_child(get_child(1))
 	queue_free()
 	
 func spawn_segment():
@@ -42,6 +31,9 @@ func spawn_segment():
 		Global.current_Segments += 1
 		const SEGMENT = preload("res://Scenes/segment.tscn")
 		var new_segment = SEGMENT.instantiate()
+		
+		#remove after follow is fixed
 		new_segment.position -= Vector2(50,0)
 		add_child(new_segment)
 	pass
+	

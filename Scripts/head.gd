@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 200
 const DOWN = .05
 
+
+
+
 var direction = Vector2.RIGHT
 
 func _ready() -> void:
@@ -11,7 +14,9 @@ func _ready() -> void:
 		
 		
 func _process(delta: float) -> void:
-	#print(position)
+
+	
+	
 	var col_info = move_and_collide(direction * SPEED * delta)
 	#hit a wall or mush
 	if col_info:
@@ -38,5 +43,8 @@ func spawn_segment():
 		Global.current_Segments += 1
 		const SEGMENT = preload("res://Scenes/segment.tscn")
 		var new_segment = SEGMENT.instantiate()
-		#new_segment.position -= Vector2(50,0)
-		#add_child(new_segment)
+		
+		#remove after follow is fixed
+		new_segment.position -= Vector2(50,0)
+		add_child(new_segment)
+		

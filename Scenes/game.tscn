@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs6w1wsh8ib2m"]
+[gd_scene load_steps=7 format=3 uid="uid://bs6w1wsh8ib2m"]
 
 [ext_resource type="PackedScene" uid="uid://dk3kixvrbbrok" path="res://Scenes/player.tscn" id="1_48t54"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_7p4y0"]
 [ext_resource type="PackedScene" uid="uid://c4gbwxcp1rcto" path="res://Scenes/mushroom.tscn" id="2_oq614"]
+[ext_resource type="PackedScene" uid="uid://c6y1mf7m7vknf" path="res://Scenes/segment.tscn" id="3_ltpna"]
 [ext_resource type="PackedScene" uid="uid://3apcqfdqry4m" path="res://Scenes/wall.tscn" id="4_ssfan"]
 [ext_resource type="PackedScene" uid="uid://yxemin8nvvki" path="res://Scenes/head.tscn" id="5_rrue3"]
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_7p4y0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -280.0
@@ -17,8 +22,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_48t54")]
 position = Vector2(0, -1)
-
-[node name="GameManager" type="Node" parent="."]
 
 [node name="Mushroom" parent="." instance=ExtResource("2_oq614")]
 position = Vector2(-36, -63)
@@ -40,4 +43,8 @@ position = Vector2(-196, 2)
 rotation = -3.13328
 
 [node name="Head" parent="." instance=ExtResource("5_rrue3")]
+unique_name_in_owner = true
 position = Vector2(-109, -99)
+
+[node name="Segment" parent="." instance=ExtResource("3_ltpna")]
+position = Vector2(-143, -96)
