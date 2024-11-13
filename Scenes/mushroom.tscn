@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dm3rspd6v0a8d" path="res://Assets/sprites/fruit.png" id="1_bk0ig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_727a7"]
-size = Vector2(10, 10)
+size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6ck2"]
 atlas = ExtResource("1_bk0ig")
@@ -30,4 +30,5 @@ script = ExtResource("1_amy0j")
 shape = SubResource("RectangleShape2D_727a7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_64mp8")

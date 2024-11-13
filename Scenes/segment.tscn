@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://co1xrmcospxhd" path="res://Assets/sprites/slime_green.png" id="2_ch08m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2i0p"]
-size = Vector2(12, 8)
+size = Vector2(8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i474"]
 atlas = ExtResource("2_ch08m")
@@ -29,5 +29,6 @@ script = ExtResource("1_0y2ay")
 shape = SubResource("RectangleShape2D_p2i0p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -5)
+scale = Vector2(0.619792, 0.619792)
 sprite_frames = SubResource("SpriteFrames_3unkv")

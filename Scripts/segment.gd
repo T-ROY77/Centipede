@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 200
+const SPEED = 100
 const DOWN = .05
 const OFFSET = 25
 
@@ -9,8 +9,8 @@ var direction = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if is_head:
-		rotation += deg_to_rad(90)
+	#if is_head:
+		#rotation += deg_to_rad(90)
 	spawn_segment()
 
 

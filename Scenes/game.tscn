@@ -23,23 +23,23 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(0, -1)
 
 [node name="Mushroom" parent="." instance=ExtResource("2_oq614")]
-position = Vector2(-36, -63)
+position = Vector2(28, -156)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-3, 0)
-zoom = Vector2(3, 3)
+position = Vector2(0, -75)
+zoom = Vector2(4, 4)
 
 [node name="Mushroom2" parent="." instance=ExtResource("2_oq614")]
-position = Vector2(-125, -52)
+position = Vector2(-28, -148)
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="Wall1" parent="Walls" instance=ExtResource("4_ssfan")]
-position = Vector2(189, 0)
+position = Vector2(80, 2)
 
 [node name="Wall2" parent="Walls" instance=ExtResource("4_ssfan")]
-position = Vector2(-196, 2)
+position = Vector2(-80, 1)
 rotation = -3.13328
 
 [node name="Segment" parent="." instance=ExtResource("3_ltpna")]
-position = Vector2(-136, -85)
+position = Vector2(-36, -172)
