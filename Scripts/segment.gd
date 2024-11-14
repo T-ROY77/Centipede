@@ -6,12 +6,15 @@ const OFFSET = 25
 
 var is_head = true
 var direction = Vector2.RIGHT
+var grid
+var type
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#if is_head:
-		#rotation += deg_to_rad(90)
+	grid = get_parent()
+	#TODO: set type baed on parent
+	#type = grid.ENTITY.SEGMENT
+	
+	
 	spawn_segment()
 
 

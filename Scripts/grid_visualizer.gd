@@ -3,12 +3,12 @@ extends Node2D
 @onready var grid: TileMapLayer = $".."
 
 func _ready():
-	modulate.a = 0.5
+	#set opacity
+	modulate.a = 0.2
 
 func _draw():
 	var LINE_COLOR = Color(255, 255, 255)
 	var LINE_WIDTH = 2
-	var window_size = get_viewport().size
 
 	for x in range(grid.grid_size.x + 1):
 		var col_pos = x * grid.tile_size.x

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs6w1wsh8ib2m"]
+[gd_scene load_steps=9 format=3 uid="uid://bs6w1wsh8ib2m"]
 
+[ext_resource type="PackedScene" uid="uid://dk3kixvrbbrok" path="res://Scenes/player.tscn" id="1_48t54"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_7p4y0"]
 [ext_resource type="PackedScene" uid="uid://c6y1mf7m7vknf" path="res://Scenes/segment.tscn" id="3_ltpna"]
 [ext_resource type="PackedScene" uid="uid://3apcqfdqry4m" path="res://Scenes/wall.tscn" id="4_ssfan"]
@@ -37,17 +38,20 @@ position = Vector2(160, 128)
 position = Vector2(2.38419e-07, 128)
 rotation = -3.13328
 
-[node name="Segment" parent="." instance=ExtResource("3_ltpna")]
-position = Vector2(50, 34)
-
 [node name="Grid" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_nrtrf")
 rendering_quadrant_size = 8
 script = ExtResource("5_oc2ax")
 
 [node name="Grid_Visualizer" type="Node2D" parent="Grid"]
+visible = false
 script = ExtResource("6_iw0hq")
 
+[node name="Player" parent="Grid" instance=ExtResource("1_48t54")]
+position = Vector2(83, 195)
+
+[node name="Segment" parent="Grid" instance=ExtResource("3_ltpna")]
+position = Vector2(6, 6)
+
 [node name="CharacterBody2D" parent="Grid" instance=ExtResource("6_0dyuf")]
-position = Vector2(81, 168)
-scale = Vector2(0.5, 0.5)
+position = Vector2(59, 161)
