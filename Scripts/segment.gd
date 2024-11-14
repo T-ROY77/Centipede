@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
+
 const SPEED = 100
+
 const DOWN = .05
 const OFFSET = 25
 
@@ -10,11 +12,16 @@ var grid
 var type
 
 func _ready() -> void:
+
 	grid = get_parent()
 	#TODO: set type baed on parent
 	#type = grid.ENTITY.SEGMENT
 	
 	
+
+	#if is_head:
+		#rotation += deg_to_rad(90)
+
 	spawn_segment()
 
 
