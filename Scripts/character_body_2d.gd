@@ -1,24 +1,17 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
-@onready var gun: Area2D = $Gun
+#var direction = Vector2()
+var speed = 0
+const MAX_SPEED = 200
 
+	
 
 func _physics_process(delta: float) -> void:
-	
 	# Get the input x direction and handle the movement/deceleration.
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * SPEED * delta
+	velocity = direction * MAX_SPEED * delta
 
+	#move_and_slide()
 	move_and_collide(velocity)
 	
-	if Input.is_action_just_pressed("shoot"):
-		gun.shoot()
-		
-		
-	#if velocity.length() > 0.0:
-		# is moving
-		
-	#else:
-		#is idle

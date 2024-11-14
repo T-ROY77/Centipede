@@ -7,6 +7,7 @@ const OFFSET = 25
 var is_head = true
 var direction = Vector2.RIGHT
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#if is_head:
