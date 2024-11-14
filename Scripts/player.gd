@@ -9,9 +9,9 @@ func _physics_process(delta: float) -> void:
 	
 	# Get the input x direction and handle the movement/deceleration.
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * SPEED
+	velocity = direction * SPEED * delta
 
-	move_and_slide()
+	move_and_collide(velocity)
 	
 	if Input.is_action_just_pressed("shoot"):
 		gun.shoot()

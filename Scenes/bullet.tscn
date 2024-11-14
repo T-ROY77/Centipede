@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bufho3n2neton" path="res://Assets/sprites/coin.png" id="2_0lmmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm6a1"]
-size = Vector2(10, 10)
+size = Vector2(5, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jadyv"]
 atlas = ExtResource("2_0lmmp")
@@ -31,6 +31,7 @@ script = ExtResource("1_5li2q")
 shape = SubResource("RectangleShape2D_lm6a1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ysfgl")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

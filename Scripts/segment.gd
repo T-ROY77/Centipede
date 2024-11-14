@@ -1,16 +1,27 @@
 extends CharacterBody2D
 
-const SPEED = 200
+
+const SPEED = 100
+
 const DOWN = .05
 const OFFSET = 25
 
 var is_head = true
 var direction = Vector2.RIGHT
+var grid
+var type
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	grid = get_parent()
+	#TODO: set type baed on parent
+	#type = grid.ENTITY.SEGMENT
+	
+	
+
 	#if is_head:
 		#rotation += deg_to_rad(90)
+
 	spawn_segment()
 
 
