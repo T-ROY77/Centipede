@@ -24,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	
 	direction = Vector2()
 	
+	
+	
 
 	speed = MAX_SPEED
 	if Input.is_action_pressed("move_up"):

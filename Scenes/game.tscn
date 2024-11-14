@@ -50,8 +50,8 @@ script = ExtResource("6_iw0hq")
 [node name="Player" parent="Grid" instance=ExtResource("1_48t54")]
 position = Vector2(83, 195)
 
-[node name="Segment" parent="Grid" instance=ExtResource("3_ltpna")]
-position = Vector2(6, 6)
-
 [node name="CharacterBody2D" parent="Grid" instance=ExtResource("6_0dyuf")]
 position = Vector2(59, 161)
+
+[node name="Segment" parent="Grid" instance=ExtResource("3_ltpna")]
+position = Vector2(6, 6)
